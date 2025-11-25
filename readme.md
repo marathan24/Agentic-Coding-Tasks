@@ -26,6 +26,16 @@ Install the required dependencies:
 uv sync
 ```
 
+### 3. Configure API Keys
+
+Create a `.env` file by copying the example environment file and add your API keys:
+
+```bash
+cp .env.example .env
+```
+
+Then edit the `.env` file and provide the necessary API keys (e.g., OpenAI, Anthropic) required for the agents you plan to use.
+
 ---
 
 ## Task 1: DB Migration Local Storage
