@@ -1,0 +1,101 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 9,
+            "passed": 9,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764011785.0804956,
+            "stop": 1764011786.845842
+        },
+        "tests": [
+            {
+                "name": "test_sync.py::test_health_endpoint",
+                "status": "passed",
+                "duration": 0.025757042000122965,
+                "start": 1764011785.839522,
+                "stop": 1764011785.8655746,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_scenario_1_index_document_first",
+                "status": "passed",
+                "duration": 0.12020124999980908,
+                "start": 1764011785.8657818,
+                "stop": 1764011785.986286,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_scenario_2_children_first",
+                "status": "passed",
+                "duration": 0.1262879169998996,
+                "start": 1764011785.9867306,
+                "stop": 1764011786.1133766,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_scenario_3_mixed_batch",
+                "status": "passed",
+                "duration": 0.08155812600011814,
+                "start": 1764011786.1137218,
+                "stop": 1764011786.1956415,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_scenario_4_late_arrival",
+                "status": "passed",
+                "duration": 0.2359464169999228,
+                "start": 1764011786.1959455,
+                "stop": 1764011786.4324179,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_scenario_5_index_reprocessing",
+                "status": "passed",
+                "duration": 0.18619845800003532,
+                "start": 1764011786.432789,
+                "stop": 1764011786.6194682,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_no_null_references",
+                "status": "passed",
+                "duration": 0.0739184999997633,
+                "start": 1764011786.6199646,
+                "stop": 1764011786.6943326,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_reference_consistency",
+                "status": "passed",
+                "duration": 0.07736320799995156,
+                "start": 1764011786.6948996,
+                "stop": 1764011786.7726305,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_performance_large_batch",
+                "status": "passed",
+                "duration": 0.07228612500011877,
+                "start": 1764011786.773044,
+                "stop": 1764011786.8456569,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            }
+        ]
+    }
+}

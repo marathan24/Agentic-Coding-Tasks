@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Analyze current SQLite implementation and data structure",
+    "status": "completed",
+    "activeForm": "Analyzing current SQLite implementation and data structure"
+  },
+  {
+    "content": "Refactor service.py to use in-memory data structures (list/dict) instead of SQLite",
+    "status": "completed",
+    "activeForm": "Refactoring service.py to use in-memory data structures"
+  },
+  {
+    "content": "Test the refactored service to ensure all 400 records load correctly",
+    "status": "in_progress",
+    "activeForm": "Testing the refactored service"
+  },
+  {
+    "content": "Verify all endpoints work identically to the original implementation",
+    "status": "pending",
+    "activeForm": "Verifying all endpoints work identically"
+  }
+]

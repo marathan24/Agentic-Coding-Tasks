@@ -1,0 +1,132 @@
+{
+  "schema_version": "ATIF-v1.2",
+  "session_id": "50a81d00-b47b-4dfc-bbb1-5c26546f1e41",
+  "agent": {
+    "name": "claude-code",
+    "version": "2.0.51",
+    "model_name": "<synthetic>",
+    "extra": {
+      "cwds": [
+        "/app"
+      ],
+      "agent_ids": [
+        "ac92c142",
+        "bd3abb6c"
+      ]
+    }
+  },
+  "steps": [
+    {
+      "step_id": 1,
+      "timestamp": "2025-11-24T21:19:13.478Z",
+      "source": "agent",
+      "model_name": "<synthetic>",
+      "message": "Invalid API key \u00b7 Fix external API key",
+      "metrics": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cached_tokens": 0,
+        "extra": {
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": null,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          }
+        }
+      },
+      "extra": {
+        "stop_reason": "stop_sequence",
+        "stop_sequence": "",
+        "cwd": "/app",
+        "is_sidechain": true
+      }
+    },
+    {
+      "step_id": 2,
+      "timestamp": "2025-11-24T21:19:13.641Z",
+      "source": "agent",
+      "model_name": "<synthetic>",
+      "message": "Invalid API key \u00b7 Fix external API key",
+      "metrics": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cached_tokens": 0,
+        "extra": {
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": null,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          }
+        }
+      },
+      "extra": {
+        "stop_reason": "stop_sequence",
+        "stop_sequence": "",
+        "cwd": "/app",
+        "is_sidechain": true
+      }
+    },
+    {
+      "step_id": 3,
+      "timestamp": "2025-11-24T21:19:09.077Z",
+      "source": "user",
+      "message": "I need help fixing a critical timeout bug in our Flask streaming API located at /app/service.py. Currently, a specific processing operation takes 35 seconds to finish, which unfortunately exceeds the strict 30-second read timeout configured on our client applications. Because the generator pauses during this calculation without sending data, clients prematurely sever the connection before receiving the necessary EOF marker. To resolve this, please implement a mechanism that keeps the connection active during long processing gaps, knowing that clients will safely ignore any keep-alive characters. You should also ensure the generator handles errors gracefully while maintaining the original stream structure. Finally, verify the fix by ensuring all scenarios in /tests/test_streaming.py pass successfully.",
+      "extra": {
+        "is_sidechain": false
+      }
+    },
+    {
+      "step_id": 4,
+      "timestamp": "2025-11-24T21:19:14.303Z",
+      "source": "agent",
+      "model_name": "<synthetic>",
+      "message": "Invalid API key \u00b7 Fix external API key",
+      "metrics": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cached_tokens": 0,
+        "extra": {
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": null,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          }
+        }
+      },
+      "extra": {
+        "stop_reason": "stop_sequence",
+        "stop_sequence": "",
+        "cwd": "/app",
+        "is_sidechain": false
+      }
+    }
+  ],
+  "final_metrics": {
+    "total_prompt_tokens": 0,
+    "total_completion_tokens": 0,
+    "total_cached_tokens": 0,
+    "total_steps": 4,
+    "extra": {
+      "total_cache_creation_input_tokens": 0,
+      "total_cache_read_input_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764017744.2725706,
+            "stop": 1764017818.4056282
+        },
+        "tests": [
+            {
+                "name": "test_streaming.py::test_health_endpoint",
+                "status": "passed",
+                "duration": 0.00552216699995256,
+                "start": 1764017744.3405082,
+                "stop": 1764017744.3461628,
+                "retries": 0,
+                "file_path": "test_streaming.py"
+            },
+            {
+                "name": "test_streaming.py::test_stream_completes_with_eof_marker",
+                "status": "passed",
+                "duration": 37.01513389200002,
+                "start": 1764017744.3462782,
+                "stop": 1764017781.3645623,
+                "retries": 0,
+                "file_path": "test_streaming.py"
+            },
+            {
+                "name": "test_streaming.py::test_all_data_delivered_correctly",
+                "status": "passed",
+                "duration": 37.03619789199999,
+                "start": 1764017781.3661704,
+                "stop": 1764017818.4048953,
+                "retries": 0,
+                "file_path": "test_streaming.py"
+            }
+        ]
+    }
+}

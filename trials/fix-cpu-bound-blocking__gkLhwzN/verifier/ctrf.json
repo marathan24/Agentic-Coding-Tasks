@@ -1,0 +1,101 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 9,
+            "passed": 9,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764019954.3679035,
+            "stop": 1764019968.4760487
+        },
+        "tests": [
+            {
+                "name": "test_state.py::test_health_endpoint",
+                "status": "passed",
+                "duration": 0.0051595840001255056,
+                "start": 1764019954.4327037,
+                "stop": 1764019954.4379869,
+                "retries": 0,
+                "file_path": "test_state.py"
+            },
+            {
+                "name": "test_state.py::test_heartbeat_starts",
+                "status": "passed",
+                "duration": 0.0036024569999426603,
+                "start": 1764019954.4380782,
+                "stop": 1764019954.4417632,
+                "retries": 0,
+                "file_path": "test_state.py"
+            },
+            {
+                "name": "test_state.py::test_heartbeat_increments",
+                "status": "passed",
+                "duration": 2.513363584999979,
+                "start": 1764019954.441845,
+                "stop": 1764019956.9556572,
+                "retries": 0,
+                "file_path": "test_state.py"
+            },
+            {
+                "name": "test_state.py::test_simple_calculation",
+                "status": "passed",
+                "duration": 0.016809916000056546,
+                "start": 1764019956.9561305,
+                "stop": 1764019956.973216,
+                "retries": 0,
+                "file_path": "test_state.py"
+            },
+            {
+                "name": "test_state.py::test_calculation_does_not_block_heartbeat",
+                "status": "passed",
+                "duration": 3.0279397920000974,
+                "start": 1764019956.9734762,
+                "stop": 1764019960.001876,
+                "retries": 0,
+                "file_path": "test_state.py"
+            },
+            {
+                "name": "test_state.py::test_multiple_calculations_concurrent",
+                "status": "passed",
+                "duration": 0.39364054300006046,
+                "start": 1764019960.0024,
+                "stop": 1764019960.3963177,
+                "retries": 0,
+                "file_path": "test_state.py"
+            },
+            {
+                "name": "test_state.py::test_heartbeat_continuous_during_heavy_load",
+                "status": "passed",
+                "duration": 3.0131197940000902,
+                "start": 1764019960.3965268,
+                "stop": 1764019963.4100895,
+                "retries": 0,
+                "file_path": "test_state.py"
+            },
+            {
+                "name": "test_state.py::test_heartbeat_consistency",
+                "status": "passed",
+                "duration": 5.043057169000008,
+                "start": 1764019963.4105592,
+                "stop": 1764019968.4543395,
+                "retries": 0,
+                "file_path": "test_state.py"
+            },
+            {
+                "name": "test_state.py::test_calculation_correctness",
+                "status": "passed",
+                "duration": 0.02055666699993708,
+                "start": 1764019968.455032,
+                "stop": 1764019968.4758332,
+                "retries": 0,
+                "file_path": "test_state.py"
+            }
+        ]
+    }
+}

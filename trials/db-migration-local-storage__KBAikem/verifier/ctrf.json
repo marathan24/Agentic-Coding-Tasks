@@ -1,0 +1,194 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 18,
+            "passed": 14,
+            "failed": 4,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764019079.4965463,
+            "stop": 1764019079.836419
+        },
+        "tests": [
+            {
+                "name": "test_queries.py::test_service_is_running",
+                "status": "passed",
+                "duration": 0.012127209000027506,
+                "start": 1764019079.590057,
+                "stop": 1764019079.6023834,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_stats_endpoint",
+                "status": "passed",
+                "duration": 0.009831208999997898,
+                "start": 1764019079.6025367,
+                "stop": 1764019079.6125066,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_query_electronics_phones",
+                "status": "passed",
+                "duration": 0.015026001000023825,
+                "start": 1764019079.6126614,
+                "stop": 1764019079.6278417,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_query_furniture_chairs",
+                "status": "passed",
+                "duration": 0.010462375000031443,
+                "start": 1764019079.627981,
+                "stop": 1764019079.6385736,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_query_clothing_shoes",
+                "status": "passed",
+                "duration": 0.00997304200001281,
+                "start": 1764019079.6387231,
+                "stop": 1764019079.648831,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_query_food_fruits",
+                "status": "passed",
+                "duration": 0.009954792999963047,
+                "start": 1764019079.6489654,
+                "stop": 1764019079.6590395,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_query_books_fiction",
+                "status": "passed",
+                "duration": 0.010081999999982827,
+                "start": 1764019079.6591597,
+                "stop": 1764019079.66936,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_query_nonexistent_combination",
+                "status": "passed",
+                "duration": 0.010218999999977996,
+                "start": 1764019079.6694918,
+                "stop": 1764019079.6798415,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_query_missing_type1",
+                "status": "passed",
+                "duration": 0.012066000000004351,
+                "start": 1764019079.6799624,
+                "stop": 1764019079.6921883,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_query_missing_type2",
+                "status": "passed",
+                "duration": 0.010019791999980043,
+                "start": 1764019079.692324,
+                "stop": 1764019079.7024598,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_query_performance",
+                "status": "passed",
+                "duration": 0.011996042999982137,
+                "start": 1764019079.7025816,
+                "stop": 1764019079.7146962,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_multiple_records_same_combination",
+                "status": "passed",
+                "duration": 0.009910082999994074,
+                "start": 1764019079.7148685,
+                "stop": 1764019079.7249544,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_all_records_queryable",
+                "status": "passed",
+                "duration": 0.029018167000003814,
+                "start": 1764019079.725089,
+                "stop": 1764019079.7542696,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_concurrent_queries",
+                "status": "passed",
+                "duration": 0.012873207000012599,
+                "start": 1764019079.7544148,
+                "stop": 1764019079.7674391,
+                "retries": 0,
+                "file_path": "test_queries.py"
+            },
+            {
+                "name": "test_queries.py::test_single_query_loads_exactly_one_type1_and_one_type2",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.010668625999983306,
+                "start": 1764019079.7675755,
+                "stop": 1764019079.7892895,
+                "retries": 0,
+                "file_path": "test_queries.py",
+                "trace": "client = <httpx.Client object at 0xffffa6b4c1a0>\n\n    def test_single_query_loads_exactly_one_type1_and_one_type2(client):\n        \"\"\"\n        CRITICAL: Each query should load EXACTLY 1 Type1 and 1 Type2 value.\n        This validates that CSV chunking is working correctly.\n        \"\"\"\n        response = client.get(\"/query\", params={\"type1\": \"electronics\", \"type2\": \"phones\"})\n        assert response.status_code == 200\n    \n        loaded_response = client.get(\"/get_all_loaded_types_and_subtypes\")\n        assert loaded_response.status_code == 200\n        loaded_data = loaded_response.json()\n    \n        print(f\"\\n=== Single Query Efficiency ===\")\n        print(f\"Query: type1=electronics, type2=phones\")\n        print(f\"Loaded Type1 values: {loaded_data['type1_values']}\")\n        print(f\"Loaded Type2 values: {loaded_data['type2_values']}\")\n    \n        # MUST load EXACTLY 1 Type1\n>       assert len(loaded_data['type1_values']) == 1, \\\n            f\"FAIL: Expected exactly 1 Type1 value, got {len(loaded_data['type1_values'])}\"\nE       AssertionError: FAIL: Expected exactly 1 Type1 value, got 10\nE       assert 10 == 1\nE        +  where 10 = len(['automotive', 'beauty', 'books', 'clothing', 'electronics', 'food', ...])\n\n/tests/test_queries.py:203: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_queries.py::test_multiple_queries_each_loads_only_requested_data",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.010750208000018802,
+                "start": 1764019079.789416,
+                "stop": 1764019079.803381,
+                "retries": 0,
+                "file_path": "test_queries.py",
+                "trace": "client = <httpx.Client object at 0xffffa69c1f10>\n\n    def test_multiple_queries_each_loads_only_requested_data(client):\n        \"\"\"\n        Test that EACH individual query loads only its specific data.\n        This ensures CSV chunks are loaded independently per query.\n        \"\"\"\n        test_cases = [\n            (\"furniture\", \"chairs\"),\n            (\"clothing\", \"shoes\"),\n            (\"food\", \"fruits\")\n        ]\n    \n        for type1, type2 in test_cases:\n            response = client.get(\"/query\", params={\"type1\": type1, \"type2\": type2})\n            assert response.status_code == 200\n    \n            loaded_response = client.get(\"/get_all_loaded_types_and_subtypes\")\n            assert loaded_response.status_code == 200\n            loaded_data = loaded_response.json()\n    \n            print(f\"\\n=== Multiple Query Test: {type1}/{type2} ===\")\n            print(f\"Loaded Type1 values: {loaded_data['type1_values']}\")\n            print(f\"Loaded Type2 values: {loaded_data['type2_values']}\")\n    \n            # Each query must load EXACTLY 1 Type1 and 1 Type2\n>           assert len(loaded_data['type1_values']) == 1, \\\n                f\"Query ({type1}, {type2}) loaded {len(loaded_data['type1_values'])} Type1 values instead of 1\"\nE           AssertionError: Query (furniture, chairs) loaded 10 Type1 values instead of 1\nE           assert 10 == 1\nE            +  where 10 = len(['automotive', 'beauty', 'books', 'clothing', 'electronics', 'food', ...])\n\n/tests/test_queries.py:239: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_queries.py::test_catastrophic_memory_inefficiency_detection",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.01565845700000068,
+                "start": 1764019079.8035154,
+                "stop": 1764019079.8224702,
+                "retries": 0,
+                "file_path": "test_queries.py",
+                "trace": "client = <httpx.Client object at 0xffffa67269f0>\n\n    def test_catastrophic_memory_inefficiency_detection(client):\n        \"\"\"\n        CRITICAL: Verify that only the queried data is loaded into memory.\n        If more than 1 Type1 or 1 Type2 is loaded, the implementation is inefficient.\n        \"\"\"\n        # Execute a single query\n        response = client.get(\"/query\", params={\"type1\": \"electronics\", \"type2\": \"phones\"})\n        assert response.status_code == 200\n    \n        # Check what was loaded into memory\n        loaded_response = client.get(\"/get_all_loaded_types_and_subtypes\")\n        assert loaded_response.status_code == 200\n        loaded_data = loaded_response.json()\n    \n        loaded_type1_count = len(loaded_data['type1_values'])\n        loaded_type2_count = len(loaded_data['type2_values'])\n    \n        print(f\"\\n=== MEMORY EFFICIENCY CHECK ===\")\n        print(f\"Query: type1=electronics, type2=phones\")\n        print(f\"Loaded into memory: {loaded_type1_count} Type1, {loaded_type2_count} Type2\")\n        print(f\"Type1 loaded: {loaded_data['type1_values']}\")\n        print(f\"Type2 loaded: {loaded_data['type2_values']}\")\n    \n        # PRIMARY ASSERTION: Must load EXACTLY 1 of each\n>       assert loaded_type1_count == 1, \\\n            f\"\u274c MEMORY INEFFICIENCY: Loaded {loaded_type1_count} Type1 values instead of 1! \" \\\n            f\"This indicates poor data organization. Loaded: {loaded_data['type1_values']}\"\nE       AssertionError: \u274c MEMORY INEFFICIENCY: Loaded 10 Type1 values instead of 1! This indicates poor data organization. Loaded: ['automotive', 'beauty', 'books', 'clothing', 'electronics', 'food', 'furniture', 'home', 'sports', 'toys']\nE       assert 10 == 1\n\n/tests/test_queries.py:274: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_queries.py::test_empty_query_loads_nothing",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.010564875000000029,
+                "start": 1764019079.8225849,
+                "stop": 1764019079.8363686,
+                "retries": 0,
+                "file_path": "test_queries.py",
+                "trace": "client = <httpx.Client object at 0xffffa673e0f0>\n\n    def test_empty_query_loads_nothing(client):\n        \"\"\"Test that queries returning no results don't load any data\"\"\"\n        response = client.get(\"/query\", params={\"type1\": \"nonexistent\", \"type2\": \"invalid\"})\n        assert response.status_code == 200\n        results = response.json()\n        assert len(results) == 0\n    \n        loaded_response = client.get(\"/get_all_loaded_types_and_subtypes\")\n        assert loaded_response.status_code == 200\n        loaded_data = loaded_response.json()\n    \n        print(f\"\\n=== Empty Query Test ===\")\n        print(f\"Query: type1=nonexistent, type2=invalid\")\n        print(f\"Loaded Type1 values: {loaded_data['type1_values']}\")\n        print(f\"Loaded Type2 values: {loaded_data['type2_values']}\")\n    \n        # For non-existent data, should load 0 values (chunk doesn't exist)\n>       assert len(loaded_data['type1_values']) == 0, \\\n            f\"Non-existent query loaded {len(loaded_data['type1_values'])} Type1 values\"\nE       AssertionError: Non-existent query loaded 10 Type1 values\nE       assert 10 == 0\nE        +  where 10 = len(['automotive', 'beauty', 'books', 'clothing', 'electronics', 'food', ...])\n\n/tests/test_queries.py:310: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

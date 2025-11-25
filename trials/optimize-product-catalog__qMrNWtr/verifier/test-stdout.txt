@@ -1,0 +1,153 @@
+=== Installing dependencies ===
+=== Starting Product Catalog API ===
+Waiting for API to start...
+API started successfully
+=== Running performance tests ===
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-8.4.1, pluggy-1.6.0 -- /root/.cache/uv/archive-v0/R1f9t0XauYUIaZxTRCufS/bin/python
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5, anyio-4.11.0
+collecting ... collected 22 items
+
+../tests/test_performance.py::test_health_endpoint PASSED                [  4%]
+../tests/test_performance.py::test_stats_endpoint PASSED                 [  9%]
+../tests/test_performance.py::test_search_electronics_brandA PASSED      [ 13%]
+../tests/test_performance.py::test_search_clothing_brandB PASSED         [ 18%]
+../tests/test_performance.py::test_search_home_brandC PASSED             [ 22%]
+../tests/test_performance.py::test_search_sports_brandD PASSED           [ 27%]
+../tests/test_performance.py::test_search_books_brandE PASSED            [ 31%]
+../tests/test_performance.py::test_search_nonexistent_combination PASSED [ 36%]
+../tests/test_performance.py::test_search_missing_category PASSED        [ 40%]
+../tests/test_performance.py::test_search_missing_brand PASSED           [ 45%]
+../tests/test_performance.py::test_get_product_by_id PASSED              [ 50%]
+../tests/test_performance.py::test_get_product_not_found PASSED          [ 54%]
+../tests/test_performance.py::test_product_data_structure PASSED         [ 59%]
+../tests/test_performance.py::test_search_performance_single_query PASSED [ 63%]
+../tests/test_performance.py::test_search_performance_multiple_queries PASSED [ 68%]
+../tests/test_performance.py::test_product_lookup_performance PASSED     [ 72%]
+../tests/test_performance.py::test_stats_performance FAILED              [ 77%]
+../tests/test_performance.py::test_concurrent_search_performance FAILED  [ 81%]
+../tests/test_performance.py::test_performance_improvement_validation PASSED [ 86%]
+../tests/test_performance.py::test_all_products_accessible PASSED        [ 90%]
+../tests/test_performance.py::test_product_uniqueness PASSED             [ 95%]
+../tests/test_performance.py::test_search_consistency PASSED             [100%]
+
+=================================== FAILURES ===================================
+____________________________ test_stats_performance ____________________________
+
+client = <httpx.Client object at 0xffff8520cb90>
+
+    def test_stats_performance(client):
+        start = time.time()
+        response = client.get("/stats")
+        elapsed = time.time() - start
+    
+        assert response.status_code == 200
+        print(f"\n=== Stats Performance ===")
+        print(f"Stats query time: {elapsed*1000:.2f}ms")
+>       assert elapsed < 0.5, f"Stats took {elapsed*1000:.2f}ms, must be under 500ms"
+E       AssertionError: Stats took 1038.75ms, must be under 500ms
+E       assert 1.038745403289795 < 0.5
+
+/tests/test_performance.py:258: AssertionError
+----------------------------- Captured stdout call -----------------------------
+
+=== Stats Performance ===
+Stats query time: 1038.75ms
+______________________ test_concurrent_search_performance ______________________
+
+client = <httpx.Client object at 0xffff84f098d0>
+
+    def test_concurrent_search_performance(client):
+        import concurrent.futures
+    
+        queries = [
+            ("electronics", "BrandA"),
+            ("electronics", "BrandB"),
+            ("clothing", "BrandC"),
+            ("clothing", "BrandD"),
+            ("home", "BrandE"),
+            ("home", "BrandF"),
+            ("sports", "BrandG"),
+            ("sports", "BrandH"),
+        ]
+    
+        def run_query(category, brand):
+            start = time.time()
+            response = client.get(
+                "/products/search",
+                params={"category": category, "brand": brand}
+            )
+            elapsed = time.time() - start
+            return elapsed, response.status_code
+    
+        start_total = time.time()
+        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+            futures = [
+                executor.submit(run_query, cat, brand)
+                for cat, brand in queries
+            ]
+            results = [f.result() for f in concurrent.futures.as_completed(futures)]
+        total_elapsed = time.time() - start_total
+    
+        for elapsed, status_code in results:
+            assert status_code == 200
+>           assert elapsed < 0.15, f"Concurrent query took {elapsed*1000:.2f}ms"
+E           AssertionError: Concurrent query took 158.09ms
+E           assert 0.15808582305908203 < 0.15
+
+/tests/test_performance.py:295: AssertionError
+==================================== PASSES ====================================
+_____________________ test_search_performance_single_query _____________________
+----------------------------- Captured stdout call -----------------------------
+
+=== Search Performance ===
+Query: category=electronics, brand=BrandA
+Time: 52.78ms
+___________________ test_search_performance_multiple_queries ___________________
+----------------------------- Captured stdout call -----------------------------
+
+=== Multiple Query Performance ===
+Average time: 55.44ms
+Max time: 60.61ms
+Min time: 52.28ms
+_______________________ test_product_lookup_performance ________________________
+----------------------------- Captured stdout call -----------------------------
+
+=== Product Lookup Performance ===
+Lookup time: 37.78ms
+___________________ test_performance_improvement_validation ____________________
+----------------------------- Captured stdout call -----------------------------
+
+=== Performance Improvement Validation ===
+Search time: 56.05ms
+✅ Performance optimization successfully applied!
+=========================== short test summary info ============================
+PASSED ../tests/test_performance.py::test_health_endpoint
+PASSED ../tests/test_performance.py::test_stats_endpoint
+PASSED ../tests/test_performance.py::test_search_electronics_brandA
+PASSED ../tests/test_performance.py::test_search_clothing_brandB
+PASSED ../tests/test_performance.py::test_search_home_brandC
+PASSED ../tests/test_performance.py::test_search_sports_brandD
+PASSED ../tests/test_performance.py::test_search_books_brandE
+PASSED ../tests/test_performance.py::test_search_nonexistent_combination
+PASSED ../tests/test_performance.py::test_search_missing_category
+PASSED ../tests/test_performance.py::test_search_missing_brand
+PASSED ../tests/test_performance.py::test_get_product_by_id
+PASSED ../tests/test_performance.py::test_get_product_not_found
+PASSED ../tests/test_performance.py::test_product_data_structure
+PASSED ../tests/test_performance.py::test_search_performance_single_query
+PASSED ../tests/test_performance.py::test_search_performance_multiple_queries
+PASSED ../tests/test_performance.py::test_product_lookup_performance
+PASSED ../tests/test_performance.py::test_performance_improvement_validation
+PASSED ../tests/test_performance.py::test_all_products_accessible
+PASSED ../tests/test_performance.py::test_product_uniqueness
+PASSED ../tests/test_performance.py::test_search_consistency
+FAILED ../tests/test_performance.py::test_stats_performance - AssertionError:...
+FAILED ../tests/test_performance.py::test_concurrent_search_performance - Ass...
+======================== 2 failed, 20 passed in 14.96s =========================
+=== Cleaning up ===
+❌ Tests failed! Reward: 0
+Test exit code: 1
+Reward file written to /logs/verifier/reward.txt

@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-8.4.1, pluggy-1.6.0 -- /root/.cache/uv/archive-v0/wGvfSW4KrBOjfcuoqXbH8/bin/python
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: anyio-4.11.0, json-ctrf-0.3.5
+collecting ... collected 3 items
+
+../tests/test_streaming.py::test_health_endpoint PASSED
+../tests/test_streaming.py::test_stream_completes_with_eof_marker PASSED
+../tests/test_streaming.py::test_all_data_delivered_correctly PASSED
+
+========================= 3 passed in 74.36s (0:01:14) =========================

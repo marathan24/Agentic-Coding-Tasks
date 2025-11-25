@@ -1,0 +1,74 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764017720.5009873,
+            "stop": 1764017726.4770584
+        },
+        "tests": [
+            {
+                "name": "test_performance.py::test_health_endpoint",
+                "status": "passed",
+                "duration": 0.0066650419999803034,
+                "start": 1764017720.5691063,
+                "stop": 1764017720.5758986,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_streaming_returns_immediately",
+                "status": "passed",
+                "duration": 0.12151679199999421,
+                "start": 1764017720.5760279,
+                "stop": 1764017720.6977162,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_analytics_eventually_recorded",
+                "status": "passed",
+                "duration": 0.2760664580000025,
+                "start": 1764017720.6978984,
+                "stop": 1764017720.9747477,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_concurrent_requests_no_blocking",
+                "status": "passed",
+                "duration": 2.113573751000004,
+                "start": 1764017720.9754407,
+                "stop": 1764017723.0889902,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_per_chunk_timing_proves_non_blocking",
+                "status": "passed",
+                "duration": 0.1167003340000008,
+                "start": 1764017723.0891445,
+                "stop": 1764017723.2059896,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_no_data_loss",
+                "status": "passed",
+                "duration": 3.269881168000012,
+                "start": 1764017723.2061434,
+                "stop": 1764017726.476702,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            }
+        ]
+    }
+}

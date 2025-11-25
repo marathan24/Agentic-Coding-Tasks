@@ -1,0 +1,22 @@
+Waiting for API to start...
+API started successfully
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5, anyio-4.11.0
+collected 9 items
+
+../tests/test_state.py .........                                         [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_state.py::test_health_endpoint
+PASSED ../tests/test_state.py::test_heartbeat_starts
+PASSED ../tests/test_state.py::test_heartbeat_increments
+PASSED ../tests/test_state.py::test_simple_calculation
+PASSED ../tests/test_state.py::test_calculation_does_not_block_heartbeat
+PASSED ../tests/test_state.py::test_multiple_calculations_concurrent
+PASSED ../tests/test_state.py::test_heartbeat_continuous_during_heavy_load
+PASSED ../tests/test_state.py::test_heartbeat_consistency
+PASSED ../tests/test_state.py::test_calculation_correctness
+============================== 9 passed in 14.11s ==============================

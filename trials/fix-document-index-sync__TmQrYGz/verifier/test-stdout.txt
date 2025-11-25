@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-8.4.1, pluggy-1.6.0 -- /root/.cache/uv/archive-v0/ug-txi-dtm-cLqOk8bC0R/bin/python
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: anyio-4.11.0, json-ctrf-0.3.5
+collecting ... collected 9 items
+
+../tests/test_sync.py::test_health_endpoint PASSED                       [ 11%]
+../tests/test_sync.py::test_scenario_1_index_document_first PASSED       [ 22%]
+../tests/test_sync.py::test_scenario_2_children_first PASSED             [ 33%]
+../tests/test_sync.py::test_scenario_3_mixed_batch PASSED                [ 44%]
+../tests/test_sync.py::test_scenario_4_late_arrival PASSED               [ 55%]
+../tests/test_sync.py::test_scenario_5_index_reprocessing PASSED         [ 66%]
+../tests/test_sync.py::test_no_null_references PASSED                    [ 77%]
+../tests/test_sync.py::test_reference_consistency PASSED                 [ 88%]
+../tests/test_sync.py::test_performance_large_batch PASSED               [100%]
+
+============================== 9 passed in 1.77s ===============================

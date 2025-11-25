@@ -1,0 +1,77 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764011756.6747375,
+            "stop": 1764011763.3557432
+        },
+        "tests": [
+            {
+                "name": "test_performance.py::test_health_endpoint",
+                "status": "passed",
+                "duration": 0.018781249999847205,
+                "start": 1764011756.8066864,
+                "stop": 1764011756.8257687,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_streaming_returns_immediately",
+                "status": "passed",
+                "duration": 0.13482045900013873,
+                "start": 1764011756.8259885,
+                "stop": 1764011756.9611742,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_analytics_eventually_recorded",
+                "status": "passed",
+                "duration": 0.7119291650001287,
+                "start": 1764011756.9615502,
+                "stop": 1764011757.674048,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_concurrent_requests_no_blocking",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 2.169392958999879,
+                "start": 1764011757.674694,
+                "stop": 1764011759.881566,
+                "retries": 0,
+                "file_path": "test_performance.py",
+                "trace": "client = <httpx.Client object at 0xffff84f71e10>\n\n    def test_concurrent_requests_no_blocking(client):\n        num_concurrent = 5\n        chunks_per_request = 8\n    \n        start_time = time.time()\n    \n        import concurrent.futures\n    \n        def make_request(i):\n            response = client.post(\"/stream\", json={\"query\": f\"concurrent {i}\", \"num_chunks\": chunks_per_request})\n            request_id = response.headers.get(\"X-Request-ID\")\n            chunk_count = sum(1 for line in response.iter_lines() if line.startswith(\"data:\"))\n            return request_id, chunk_count\n    \n        with concurrent.futures.ThreadPoolExecutor(max_workers=num_concurrent) as executor:\n            results = list(executor.map(make_request, range(num_concurrent)))\n    \n        elapsed_time = time.time() - start_time\n    \n        assert len(results) == num_concurrent\n        for request_id, chunk_count in results:\n            assert request_id is not None\n            assert chunk_count == chunks_per_request\n    \n        assert elapsed_time < 0.5, (\n            f\"Concurrent requests took {elapsed_time:.3f}s - should be < 0.5s with fire-and-forget\"\n        )\n    \n        time.sleep(2.0)\n    \n        all_analytics = client.get(\"/analytics\").json()\n        expected_total = num_concurrent * chunks_per_request\n    \n>       assert all_analytics[\"total_records\"] == expected_total, (\n            f\"Expected {expected_total} analytics records, got {all_analytics['total_records']}\"\n        )\nE       AssertionError: Expected 40 analytics records, got 39\nE       assert 39 == 40\n\n/tests/test_performance.py:130: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_performance.py::test_per_chunk_timing_proves_non_blocking",
+                "status": "passed",
+                "duration": 0.13746387500009405,
+                "start": 1764011759.8819997,
+                "stop": 1764011760.0204434,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_no_data_loss",
+                "status": "passed",
+                "duration": 3.33027016799997,
+                "start": 1764011760.02085,
+                "stop": 1764011763.3543715,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            }
+        ]
+    }
+}

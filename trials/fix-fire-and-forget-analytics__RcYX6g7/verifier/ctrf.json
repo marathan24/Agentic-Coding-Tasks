@@ -1,0 +1,77 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764011048.1455014,
+            "stop": 1764011055.803253
+        },
+        "tests": [
+            {
+                "name": "test_performance.py::test_health_endpoint",
+                "status": "passed",
+                "duration": 0.08266783300018687,
+                "start": 1764011048.6494853,
+                "stop": 1764011048.7334306,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_streaming_returns_immediately",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.49727283399988664,
+                "start": 1764011048.7342782,
+                "stop": 1764011049.4828274,
+                "retries": 0,
+                "file_path": "test_performance.py",
+                "trace": "client = <httpx.Client object at 0xffffad6bdf50>\n\n    def test_streaming_returns_immediately(client):\n        start_time = time.time()\n    \n        response = client.post(\"/stream\", json={\"query\": \"test query\", \"num_chunks\": 10})\n    \n        assert response.status_code == 200\n    \n        chunks = []\n        for line in response.iter_lines():\n            if line.startswith(\"data:\"):\n                chunks.append(line)\n    \n        elapsed_time = time.time() - start_time\n    \n        assert len(chunks) == 10, f\"Expected 10 chunks, got {len(chunks)}\"\n    \n>       assert elapsed_time < 0.2, (\n            f\"Streaming took {elapsed_time:.3f}s - analytics is still blocking! \"\n            f\"Should be ~0.1s for 10 chunks without blocking.\"\n        )\nE       AssertionError: Streaming took 0.378s - analytics is still blocking! Should be ~0.1s for 10 chunks without blocking.\nE       assert 0.37776684761047363 < 0.2\n\n/tests/test_performance.py:46: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_performance.py::test_analytics_eventually_recorded",
+                "status": "passed",
+                "duration": 0.358199748999823,
+                "start": 1764011049.4844604,
+                "stop": 1764011049.8454368,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_concurrent_requests_no_blocking",
+                "status": "passed",
+                "duration": 2.2017399180001576,
+                "start": 1764011049.8473434,
+                "stop": 1764011052.0329428,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_per_chunk_timing_proves_non_blocking",
+                "status": "passed",
+                "duration": 0.14676650000001246,
+                "start": 1764011052.0396717,
+                "stop": 1764011052.1867158,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_no_data_loss",
+                "status": "passed",
+                "duration": 3.607975876999717,
+                "start": 1764011052.1869307,
+                "stop": 1764011055.7979784,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            }
+        ]
+    }
+}

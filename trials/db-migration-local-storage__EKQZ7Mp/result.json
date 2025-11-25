@@ -1,0 +1,87 @@
+{
+    "id": "88bf5295-2dd8-4be3-84f7-443ea80aa2ed",
+    "task_name": "db-migration-local-storage",
+    "trial_name": "db-migration-local-storage__EKQZ7Mp",
+    "trial_uri": "file:///Users/sahilgulihar/Developer/abundant_labs_demo/trials/db-migration-local-storage__EKQZ7Mp",
+    "task_id": {
+        "path": "datasets/abundant_labs_demo/db-migration-local-storage"
+    },
+    "source": null,
+    "task_checksum": "a5a8e8f79beecedab33fcfac097209048be0128ce16242b89ae9e7aaa8375418",
+    "config": {
+        "task": {
+            "path": "datasets/abundant_labs_demo/db-migration-local-storage",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "db-migration-local-storage__EKQZ7Mp",
+        "trials_dir": "trials",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "claude-code",
+            "import_path": null,
+            "model_name": "anthropic/claude-sonnet-4-5-20250929",
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": true,
+            "delete": false,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": null
+    },
+    "agent_info": {
+        "name": "claude-code",
+        "version": "unknown",
+        "model_info": {
+            "name": "claude-sonnet-4-5-20250929",
+            "provider": "anthropic"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 763961,
+        "n_cache_tokens": 761993,
+        "n_output_tokens": 4391,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2025-11-24T23:59:10.118303",
+    "finished_at": "2025-11-25T00:03:47.208903",
+    "environment_setup": {
+        "started_at": "2025-11-24T23:59:10.120180",
+        "finished_at": "2025-11-24T23:59:18.942461"
+    },
+    "agent_setup": {
+        "started_at": "2025-11-24T23:59:18.942732",
+        "finished_at": "2025-11-25T00:00:32.826915"
+    },
+    "agent_execution": {
+        "started_at": "2025-11-25T00:00:32.827061",
+        "finished_at": "2025-11-25T00:02:43.509047"
+    },
+    "verifier": {
+        "started_at": "2025-11-25T00:02:43.509994",
+        "finished_at": "2025-11-25T00:03:35.779838"
+    }
+}

@@ -1,0 +1,13 @@
+claude --verbose --output-format stream-json -p 'A streaming API service generates responses chunk-by-chunk while recording analytics data for each chunk. The current implementation at /app/service.py has a critical performance bug where analytics operations execute synchronously within the streaming response generator, causing the stream to block and stutter while waiting for database writes and processing.
+
+When a user requests a streaming response, each chunk should be yielded immediately to provide smooth, responsive output. However, the current code calls `await record_analytics(chunk_data)` directly in the generator loop, forcing the stream to pause for 50-100ms per chunk while analytics data is written to the database. This creates a stuttering, laggy user experience where chunks arrive in bursts instead of flowing smoothly.
+
+The core issue is that analytics operations—while valuable for monitoring and quality assurance—are secondary to serving the user and should never block the primary response path. The current synchronous approach treats analytics as equally important to user response, causing unnecessary latency and degraded throughput.
+
+Your task is to implement a true fire-and-forget analytics system using asyncio queues and background worker tasks. The solution must decouple analytics operations from the streaming response path entirely. When a chunk is generated, analytics data should be queued instantly (submicrosecond operation) and processed asynchronously by dedicated background workers, allowing the stream to continue without any blocking.
+
+The implementation must guarantee that user-facing operations never wait for analytics. Background workers should consume tasks from the queue and process them independently, with proper error handling to ensure analytics failures do not affect user requests. The system should maintain eventual consistency—analytics data will be recorded, just not synchronously during the response.
+
+All tests in /tests/test_performance.py must pass, demonstrating that streaming responses return immediately without blocking on analytics operations, that analytics data is eventually recorded correctly, and that the system maintains performance under concurrent load.
+
+' --allowedTools Bash Edit Write Read Glob Grep LS WebFetch NotebookEdit NotebookRead TodoRead TodoWrite Agent 2>&1 </dev/null | tee /logs/agent/claude-code.txt

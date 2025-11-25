@@ -1,0 +1,224 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 22,
+            "passed": 20,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764016768.5348296,
+            "stop": 1764016783.4934707
+        },
+        "tests": [
+            {
+                "name": "test_performance.py::test_health_endpoint",
+                "status": "passed",
+                "duration": 0.006377915999991046,
+                "start": 1764016768.6106505,
+                "stop": 1764016768.6171927,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_stats_endpoint",
+                "status": "passed",
+                "duration": 1.028820042999996,
+                "start": 1764016768.6173103,
+                "stop": 1764016769.64701,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_electronics_brandA",
+                "status": "passed",
+                "duration": 0.06766041600002382,
+                "start": 1764016769.6476543,
+                "stop": 1764016769.7159145,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_clothing_brandB",
+                "status": "passed",
+                "duration": 0.06274237499999913,
+                "start": 1764016769.7162242,
+                "stop": 1764016769.7793922,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_home_brandC",
+                "status": "passed",
+                "duration": 0.06772825000001603,
+                "start": 1764016769.7799761,
+                "stop": 1764016769.8482413,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_sports_brandD",
+                "status": "passed",
+                "duration": 0.06717924999998104,
+                "start": 1764016769.8486059,
+                "stop": 1764016769.916268,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_books_brandE",
+                "status": "passed",
+                "duration": 0.06577799999999456,
+                "start": 1764016769.9166377,
+                "stop": 1764016769.983199,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_nonexistent_combination",
+                "status": "passed",
+                "duration": 0.07066558399998257,
+                "start": 1764016769.9838502,
+                "stop": 1764016770.0549514,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_missing_category",
+                "status": "passed",
+                "duration": 0.009359958000004553,
+                "start": 1764016770.0552351,
+                "stop": 1764016770.064874,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_missing_brand",
+                "status": "passed",
+                "duration": 0.006962208000004466,
+                "start": 1764016770.0650814,
+                "stop": 1764016770.072233,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_get_product_by_id",
+                "status": "passed",
+                "duration": 0.0965523759999769,
+                "start": 1764016770.072383,
+                "stop": 1764016770.1691322,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_get_product_not_found",
+                "status": "passed",
+                "duration": 0.04188037500000519,
+                "start": 1764016770.1692955,
+                "stop": 1764016770.211474,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_product_data_structure",
+                "status": "passed",
+                "duration": 0.056908959000026016,
+                "start": 1764016770.2116487,
+                "stop": 1764016770.268834,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_performance_single_query",
+                "status": "passed",
+                "duration": 0.058357831999984455,
+                "start": 1764016770.2690783,
+                "stop": 1764016770.3276992,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_performance_multiple_queries",
+                "status": "passed",
+                "duration": 0.2861875410000039,
+                "start": 1764016770.3280885,
+                "stop": 1764016770.6146967,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_product_lookup_performance",
+                "status": "passed",
+                "duration": 0.10288516700003925,
+                "start": 1764016770.6151342,
+                "stop": 1764016770.7186515,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_stats_performance",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 1.050809624999971,
+                "start": 1764016770.719087,
+                "stop": 1764016771.8056233,
+                "retries": 0,
+                "file_path": "test_performance.py",
+                "trace": "client = <httpx.Client object at 0xffff8520cb90>\n\n    def test_stats_performance(client):\n        start = time.time()\n        response = client.get(\"/stats\")\n        elapsed = time.time() - start\n    \n        assert response.status_code == 200\n        print(f\"\\n=== Stats Performance ===\")\n        print(f\"Stats query time: {elapsed*1000:.2f}ms\")\n>       assert elapsed < 0.5, f\"Stats took {elapsed*1000:.2f}ms, must be under 500ms\"\nE       AssertionError: Stats took 1038.75ms, must be under 500ms\nE       assert 1.038745403289795 < 0.5\n\n/tests/test_performance.py:258: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_performance.py::test_concurrent_search_performance",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.4424635420000129,
+                "start": 1764016771.8059473,
+                "stop": 1764016772.2567842,
+                "retries": 0,
+                "file_path": "test_performance.py",
+                "trace": "client = <httpx.Client object at 0xffff84f098d0>\n\n    def test_concurrent_search_performance(client):\n        import concurrent.futures\n    \n        queries = [\n            (\"electronics\", \"BrandA\"),\n            (\"electronics\", \"BrandB\"),\n            (\"clothing\", \"BrandC\"),\n            (\"clothing\", \"BrandD\"),\n            (\"home\", \"BrandE\"),\n            (\"home\", \"BrandF\"),\n            (\"sports\", \"BrandG\"),\n            (\"sports\", \"BrandH\"),\n        ]\n    \n        def run_query(category, brand):\n            start = time.time()\n            response = client.get(\n                \"/products/search\",\n                params={\"category\": category, \"brand\": brand}\n            )\n            elapsed = time.time() - start\n            return elapsed, response.status_code\n    \n        start_total = time.time()\n        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:\n            futures = [\n                executor.submit(run_query, cat, brand)\n                for cat, brand in queries\n            ]\n            results = [f.result() for f in concurrent.futures.as_completed(futures)]\n        total_elapsed = time.time() - start_total\n    \n        for elapsed, status_code in results:\n            assert status_code == 200\n>           assert elapsed < 0.15, f\"Concurrent query took {elapsed*1000:.2f}ms\"\nE           AssertionError: Concurrent query took 158.09ms\nE           assert 0.15808582305908203 < 0.15\n\n/tests/test_performance.py:295: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_performance.py::test_performance_improvement_validation",
+                "status": "passed",
+                "duration": 0.06350416699996231,
+                "start": 1764016772.257036,
+                "stop": 1764016772.3208363,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_all_products_accessible",
+                "status": "passed",
+                "duration": 5.514107420000016,
+                "start": 1764016772.321086,
+                "stop": 1764016777.8356392,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_product_uniqueness",
+                "status": "passed",
+                "duration": 5.47331166799998,
+                "start": 1764016777.8362544,
+                "stop": 1764016783.3107858,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_consistency",
+                "status": "passed",
+                "duration": 0.18052758400000357,
+                "start": 1764016783.311386,
+                "stop": 1764016783.4928277,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            }
+        ]
+    }
+}

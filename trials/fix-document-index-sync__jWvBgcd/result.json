@@ -1,0 +1,75 @@
+{
+    "id": "774f5bee-b4f6-4a59-81bd-51c97dbabda9",
+    "task_name": "fix-document-index-sync",
+    "trial_name": "fix-document-index-sync__jWvBgcd",
+    "trial_uri": "file:///Users/sahilgulihar/Developer/abundant_labs_demo/trials/fix-document-index-sync__jWvBgcd",
+    "task_id": {
+        "path": "datasets/abundant_labs_demo/fix-document-index-sync"
+    },
+    "source": null,
+    "task_checksum": "8e2154684a7508a0eb8a3c3b571750320120ad869c04a05865d1366d10cc8965",
+    "config": {
+        "task": {
+            "path": "datasets/abundant_labs_demo/fix-document-index-sync",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "fix-document-index-sync__jWvBgcd",
+        "trials_dir": "trials",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "claude-code",
+            "import_path": null,
+            "model_name": "anthropic/claude-sonnet-4-5-20250929",
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": true,
+            "delete": false,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": null
+    },
+    "agent_info": {
+        "name": "claude-code",
+        "version": "unknown",
+        "model_info": {
+            "name": "claude-sonnet-4-5-20250929",
+            "provider": "anthropic"
+        }
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "AgentSetupTimeoutError",
+        "exception_message": "Agent setup timed out after 360.0 seconds",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/agents/installed/base.py\", line 100, in setup\n    result = await environment.exec(command=\"bash /installed-agent/install.sh\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/environments/docker/docker.py\", line 261, in exec\n    return await self._run_docker_compose_command(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/environments/docker/docker.py\", line 144, in _run_docker_compose_command\n    stdout_bytes, stderr_bytes = await process.communicate()\n                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/subprocess.py\", line 201, in communicate\n    stdin, stdout, stderr = await tasks.gather(stdin, stdout, stderr)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/subprocess.py\", line 181, in _read_stream\n    output = await stream.read()\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/streams.py\", line 706, in read\n    block = await self.read(self._limit)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/streams.py\", line 713, in read\n    await self._wait_for_data('read')\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/streams.py\", line 545, in _wait_for_data\n    await self._waiter\nasyncio.exceptions.CancelledError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 208, in _setup_agent\n    await asyncio.wait_for(\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py\", line 519, in wait_for\n    async with timeouts.timeout(timeout):\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/timeouts.py\", line 115, in __aexit__\n    raise TimeoutError from exc_val\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 341, in run\n    await self._setup_agent()\n  File \"/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 213, in _setup_agent\n    raise AgentSetupTimeoutError(\nharbor.trial.trial.AgentSetupTimeoutError: Agent setup timed out after 360.0 seconds\n",
+        "occurred_at": "2025-11-25T00:54:51.584633"
+    },
+    "started_at": "2025-11-25T00:48:46.489113",
+    "finished_at": "2025-11-25T00:55:05.112088",
+    "environment_setup": {
+        "started_at": "2025-11-25T00:48:46.491409",
+        "finished_at": "2025-11-25T00:48:51.492633"
+    },
+    "agent_setup": {
+        "started_at": "2025-11-25T00:48:51.493026",
+        "finished_at": "2025-11-25T00:54:51.531383"
+    },
+    "agent_execution": null,
+    "verifier": null
+}

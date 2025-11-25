@@ -1,0 +1,218 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 22,
+            "passed": 22,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764016920.514078,
+            "stop": 1764016920.837534
+        },
+        "tests": [
+            {
+                "name": "test_performance.py::test_health_endpoint",
+                "status": "passed",
+                "duration": 0.00541154200004712,
+                "start": 1764016920.5959191,
+                "stop": 1764016920.6014922,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_stats_endpoint",
+                "status": "passed",
+                "duration": 0.004105624999965585,
+                "start": 1764016920.6016486,
+                "stop": 1764016920.6058626,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_electronics_brandA",
+                "status": "passed",
+                "duration": 0.004264624999962052,
+                "start": 1764016920.6059663,
+                "stop": 1764016920.6103802,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_clothing_brandB",
+                "status": "passed",
+                "duration": 0.0038574999999809734,
+                "start": 1764016920.6104956,
+                "stop": 1764016920.6144505,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_home_brandC",
+                "status": "passed",
+                "duration": 0.004175624000026801,
+                "start": 1764016920.6145587,
+                "stop": 1764016920.6188474,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_sports_brandD",
+                "status": "passed",
+                "duration": 0.004052082999976392,
+                "start": 1764016920.618981,
+                "stop": 1764016920.6231468,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_books_brandE",
+                "status": "passed",
+                "duration": 0.004113707999977123,
+                "start": 1764016920.6232498,
+                "stop": 1764016920.627459,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_nonexistent_combination",
+                "status": "passed",
+                "duration": 0.0062171250000346845,
+                "start": 1764016920.62758,
+                "stop": 1764016920.6339269,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_missing_category",
+                "status": "passed",
+                "duration": 0.0037252079999348098,
+                "start": 1764016920.6340325,
+                "stop": 1764016920.6378458,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_missing_brand",
+                "status": "passed",
+                "duration": 0.01398945799996909,
+                "start": 1764016920.637927,
+                "stop": 1764016920.6524196,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_get_product_by_id",
+                "status": "passed",
+                "duration": 0.018188458000054197,
+                "start": 1764016920.6535583,
+                "stop": 1764016920.6719632,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_get_product_not_found",
+                "status": "passed",
+                "duration": 0.009164249999969343,
+                "start": 1764016920.6721168,
+                "stop": 1764016920.6814654,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_product_data_structure",
+                "status": "passed",
+                "duration": 0.004144832999941173,
+                "start": 1764016920.6815956,
+                "stop": 1764016920.6858573,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_performance_single_query",
+                "status": "passed",
+                "duration": 0.0038062490000356775,
+                "start": 1764016920.6859713,
+                "stop": 1764016920.6898715,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_performance_multiple_queries",
+                "status": "passed",
+                "duration": 0.007070333999990908,
+                "start": 1764016920.6899705,
+                "stop": 1764016920.6971705,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_product_lookup_performance",
+                "status": "passed",
+                "duration": 0.005048082999962844,
+                "start": 1764016920.697291,
+                "stop": 1764016920.7024703,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_stats_performance",
+                "status": "passed",
+                "duration": 0.004529126000022643,
+                "start": 1764016920.7026167,
+                "stop": 1764016920.707284,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_concurrent_search_performance",
+                "status": "passed",
+                "duration": 0.010086999999998625,
+                "start": 1764016920.7073922,
+                "stop": 1764016920.7176704,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_performance_improvement_validation",
+                "status": "passed",
+                "duration": 0.0046317079999766975,
+                "start": 1764016920.7177866,
+                "stop": 1764016920.7225552,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_all_products_accessible",
+                "status": "passed",
+                "duration": 0.042289208999989114,
+                "start": 1764016920.7226655,
+                "stop": 1764016920.765105,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_product_uniqueness",
+                "status": "passed",
+                "duration": 0.06704187600001887,
+                "start": 1764016920.7652369,
+                "stop": 1764016920.8324337,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            },
+            {
+                "name": "test_performance.py::test_search_consistency",
+                "status": "passed",
+                "duration": 0.004793249999977434,
+                "start": 1764016920.832567,
+                "stop": 1764016920.837476,
+                "retries": 0,
+                "file_path": "test_performance.py"
+            }
+        ]
+    }
+}

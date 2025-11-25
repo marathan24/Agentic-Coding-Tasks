@@ -1,0 +1,107 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 9,
+            "passed": 7,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1764013003.4793177,
+            "stop": 1764013004.7869465
+        },
+        "tests": [
+            {
+                "name": "test_sync.py::test_health_endpoint",
+                "status": "passed",
+                "duration": 0.014599956999973074,
+                "start": 1764013003.6454298,
+                "stop": 1764013003.6602519,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_scenario_1_index_document_first",
+                "status": "passed",
+                "duration": 0.14797958400049538,
+                "start": 1764013003.660399,
+                "stop": 1764013003.8087754,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_scenario_2_children_first",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.16176579200009655,
+                "start": 1764013003.8091054,
+                "stop": 1764013004.040555,
+                "retries": 0,
+                "file_path": "test_sync.py",
+                "trace": "client = <httpx.Client object at 0xffff913df910>\n\n    def test_scenario_2_children_first(client):\n        batch1 = {\n            \"documents\": [\n                {\n                    \"documentId\": \"ADD-002\",\n                    \"documentTag\": \"Addendum\",\n                    \"collectionName\": \"Test-Collection-2\"\n                },\n                {\n                    \"documentId\": \"MAIN-002\",\n                    \"documentTag\": \"MainDocument\",\n                    \"collectionName\": \"Test-Collection-2\"\n                },\n                {\n                    \"documentId\": \"ERR-002\",\n                    \"documentTag\": \"Errata\",\n                    \"collectionName\": \"Test-Collection-2\"\n                }\n            ]\n        }\n    \n        response = client.post(\"/batch\", json=batch1)\n        assert response.status_code == 200\n        result = response.json()\n        assert result[\"processed\"] == 3\n        assert result[\"failed\"] == 0\n    \n        for doc_id in [\"ADD-002\", \"MAIN-002\", \"ERR-002\"]:\n            doc = client.get(f\"/documents/{doc_id}\").json()\n            assert doc[\"jsonId\"] is not None\n            assert doc[\"jsonId\"].startswith(\"JSON-\")\n    \n        batch2 = {\n            \"documents\": [\n                {\n                    \"documentId\": \"IDX-002\",\n                    \"documentTag\": \"IndexDocument\",\n                    \"collectionName\": \"Test-Collection-2\",\n                    \"childDocumentIds\": [\n                        {\"documentId\": \"ADD-002\"},\n                        {\"documentId\": \"MAIN-002\"},\n                        {\"documentId\": \"ERR-002\"}\n                    ]\n                }\n            ]\n        }\n    \n        response = client.post(\"/batch\", json=batch2)\n        assert response.status_code == 200\n        result = response.json()\n        assert result[\"processed\"] == 1\n        assert result[\"failed\"] == 0\n    \n        children_info = client.get(\"/index/IDX-002/children\").json()\n        child_refs = children_info[\"childReferences\"]\n    \n        assert len(child_refs) == 3\n        for ref in child_refs:\n>           assert ref.get(\"jsonId\") is not None, f\"Child {ref['documentId']} should have jsonId from PULL\"\nE           AssertionError: Child ADD-002 should have jsonId from PULL\nE           assert None is not None\nE            +  where None = <built-in method get of dict object at 0xffff906bfb80>('jsonId')\nE            +    where <built-in method get of dict object at 0xffff906bfb80> = {'documentId': 'ADD-002'}.get\n\n/tests/test_sync.py:153: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_sync.py::test_scenario_3_mixed_batch",
+                "status": "passed",
+                "duration": 0.07465312499925858,
+                "start": 1764013004.0409667,
+                "stop": 1764013004.1158893,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_scenario_4_late_arrival",
+                "status": "passed",
+                "duration": 0.2512519590004558,
+                "start": 1764013004.1161304,
+                "stop": 1764013004.3680143,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_scenario_5_index_reprocessing",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.15029129199956515,
+                "start": 1764013004.368539,
+                "stop": 1764013004.5331676,
+                "retries": 0,
+                "file_path": "test_sync.py",
+                "trace": "client = <httpx.Client object at 0xffff90977710>\n\n    def test_scenario_5_index_reprocessing(client):\n        batch1 = {\n            \"documents\": [\n                {\n                    \"documentId\": \"ADD-005\",\n                    \"documentTag\": \"Addendum\",\n                    \"collectionName\": \"Test-Collection-5\"\n                },\n                {\n                    \"documentId\": \"MAIN-005\",\n                    \"documentTag\": \"MainDocument\",\n                    \"collectionName\": \"Test-Collection-5\"\n                }\n            ]\n        }\n    \n        response = client.post(\"/batch\", json=batch1)\n        assert response.status_code == 200\n    \n        batch2 = {\n            \"documents\": [\n                {\n                    \"documentId\": \"IDX-005\",\n                    \"documentTag\": \"IndexDocument\",\n                    \"collectionName\": \"Test-Collection-5\",\n                    \"childDocumentIds\": [\n                        {\"documentId\": \"ADD-005\"},\n                        {\"documentId\": \"MAIN-005\"}\n                    ]\n                }\n            ]\n        }\n    \n        response = client.post(\"/batch\", json=batch2)\n        assert response.status_code == 200\n    \n        children_info = client.get(\"/index/IDX-005/children\").json()\n        initial_refs = children_info[\"childReferences\"]\n        assert len(initial_refs) == 2\n        for ref in initial_refs:\n>           assert ref.get(\"jsonId\") is not None\nE           AssertionError: assert None is not None\nE            +  where None = <built-in method get of dict object at 0xffff904be780>('jsonId')\nE            +    where <built-in method get of dict object at 0xffff904be780> = {'documentId': 'ADD-005'}.get\n\n/tests/test_sync.py:320: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_sync.py::test_no_null_references",
+                "status": "passed",
+                "duration": 0.07941845799996372,
+                "start": 1764013004.5334027,
+                "stop": 1764013004.6134727,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_reference_consistency",
+                "status": "passed",
+                "duration": 0.08609012500028257,
+                "start": 1764013004.6138177,
+                "stop": 1764013004.7005112,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            },
+            {
+                "name": "test_sync.py::test_performance_large_batch",
+                "status": "passed",
+                "duration": 0.08524229300019215,
+                "start": 1764013004.7009032,
+                "stop": 1764013004.7866611,
+                "retries": 0,
+                "file_path": "test_sync.py"
+            }
+        ]
+    }
+}

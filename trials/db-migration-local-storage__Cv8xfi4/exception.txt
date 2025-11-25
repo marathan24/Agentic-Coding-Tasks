@@ -1,0 +1,231 @@
+Traceback (most recent call last):
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/trial/trial.py", line 340, in run
+    await self._setup_environment()
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/trial/trial.py", line 180, in _setup_environment
+    await self._start_environment_with_retry()
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/trial/trial.py", line 192, in _start_environment_with_retry
+    await asyncio.wait_for(
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 184, in start
+    await self._run_docker_compose_command(["up", "-d"])
+  File "/Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 166, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment db-migration-local-storage. Command: docker compose -p db-migration-local-storage__cv8xfi4 -f /Users/sahilgulihar/Developer/abundant_labs_demo/.venv/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 17. Stdout:  main Pulling 
+ main Warning pull access denied for hb__db-migration-local-storage, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+ Service main  Building
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 560B done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/python:3.11-slim
+#2 DONE 4.4s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main internal] load build context
+#4 transferring context: 8.56kB done
+#4 DONE 0.0s
+
+#5 [main 1/8] FROM docker.io/library/python:3.11-slim@sha256:193fdd0bbcb3d2ae612bd6cc3548d2f7c78d65b549fcaa8af75624c47474444d
+#5 resolve docker.io/library/python:3.11-slim@sha256:193fdd0bbcb3d2ae612bd6cc3548d2f7c78d65b549fcaa8af75624c47474444d done
+#5 sha256:e58d60f13eb95771fb59593557b0fb42ac3fea464719875fd24b5d973ddaaae1 5.49kB / 5.49kB done
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 0B / 30.14MB 0.1s
+#5 sha256:89477b9ce6a61ff5ad56b76e727848cb22d07bf3b33c7513e057fc9138560013 0B / 1.27MB 0.1s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 0B / 14.31MB 0.1s
+#5 sha256:193fdd0bbcb3d2ae612bd6cc3548d2f7c78d65b549fcaa8af75624c47474444d 10.37kB / 10.37kB done
+#5 sha256:28bb9b9d29b81c88b0a22d4c1c5294479df1b371a78636e0137f44728a69ae4c 1.75kB / 1.75kB done
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 2.10MB / 30.14MB 0.9s
+#5 sha256:89477b9ce6a61ff5ad56b76e727848cb22d07bf3b33c7513e057fc9138560013 1.27MB / 1.27MB 1.3s
+#5 sha256:89477b9ce6a61ff5ad56b76e727848cb22d07bf3b33c7513e057fc9138560013 1.27MB / 1.27MB 1.3s done
+#5 sha256:44032d6d082a846084212c224a7e6705d4dafd612194449511ef14c38388ffef 0B / 250B 1.5s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 4.19MB / 30.14MB 2.2s
+#5 sha256:44032d6d082a846084212c224a7e6705d4dafd612194449511ef14c38388ffef 250B / 250B 2.1s done
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 1.05MB / 14.31MB 4.9s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 6.29MB / 30.14MB 5.1s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 2.10MB / 14.31MB 5.1s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 4.19MB / 14.31MB 5.4s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 5.24MB / 14.31MB 5.5s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 6.29MB / 14.31MB 5.9s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 7.34MB / 14.31MB 6.1s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 8.39MB / 14.31MB 6.4s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 9.44MB / 14.31MB 6.7s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 10.49MB / 14.31MB 7.1s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 8.39MB / 30.14MB 7.2s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 11.53MB / 14.31MB 7.4s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 12.58MB / 14.31MB 7.6s
+#5 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 14.31MB / 14.31MB 8.0s done
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 10.49MB / 30.14MB 8.5s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 13.63MB / 30.14MB 9.1s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 16.78MB / 30.14MB 9.7s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 18.87MB / 30.14MB 10.1s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 20.97MB / 30.14MB 10.6s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 23.07MB / 30.14MB 11.2s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 25.17MB / 30.14MB 11.8s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 27.26MB / 30.14MB 12.3s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 30.14MB / 30.14MB 12.7s
+#5 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 30.14MB / 30.14MB 12.7s done
+#5 extracting sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 0.1s
+#5 extracting sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 1.0s done
+#5 extracting sha256:89477b9ce6a61ff5ad56b76e727848cb22d07bf3b33c7513e057fc9138560013
+#5 extracting sha256:89477b9ce6a61ff5ad56b76e727848cb22d07bf3b33c7513e057fc9138560013 0.1s done
+#5 extracting sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 0.1s
+#5 extracting sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 0.8s done
+#5 extracting sha256:44032d6d082a846084212c224a7e6705d4dafd612194449511ef14c38388ffef
+#5 extracting sha256:44032d6d082a846084212c224a7e6705d4dafd612194449511ef14c38388ffef done
+#5 DONE 14.8s
+
+#6 [main 2/8] WORKDIR /app
+#6 DONE 0.3s
+
+#7 [main 3/8] RUN pip install --no-cache-dir     fastapi==0.104.1     uvicorn==0.24.0
+#7 1.248 Collecting fastapi==0.104.1
+#7 1.683   Downloading fastapi-0.104.1-py3-none-any.whl.metadata (24 kB)
+#7 24.09 ERROR: Exception:
+#7 24.09 Traceback (most recent call last):
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 438, in _error_catcher
+#7 24.09     yield
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 561, in read
+#7 24.09     data = self._fp_read(amt) if not fp_closed else b""
+#7 24.09            ^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 527, in _fp_read
+#7 24.09     return self._fp.read(amt) if amt is not None else self._fp.read()
+#7 24.09            ^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/http/client.py", line 473, in read
+#7 24.09     s = self.fp.read(amt)
+#7 24.09         ^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/socket.py", line 718, in readinto
+#7 24.09     return self._sock.recv_into(b)
+#7 24.09            ^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/ssl.py", line 1314, in recv_into
+#7 24.09     return self.read(nbytes, buffer)
+#7 24.09            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/ssl.py", line 1166, in read
+#7 24.09     return self._sslobj.read(len, buffer)
+#7 24.09            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09 TimeoutError: The read operation timed out
+#7 24.09 
+#7 24.09 During handling of the above exception, another exception occurred:
+#7 24.09 
+#7 24.09 Traceback (most recent call last):
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/cli/base_command.py", line 180, in exc_logging_wrapper
+#7 24.09     status = run_func(*args)
+#7 24.09              ^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/cli/req_command.py", line 245, in wrapper
+#7 24.09     return func(self, options, args)
+#7 24.09            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/commands/install.py", line 377, in run
+#7 24.09     requirement_set = resolver.resolve(
+#7 24.09                       ^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/resolver.py", line 95, in resolve
+#7 24.09     result = self._result = resolver.resolve(
+#7 24.09                             ^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/resolvelib/resolvers.py", line 546, in resolve
+#7 24.09     state = resolution.resolve(requirements, max_rounds=max_rounds)
+#7 24.09             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/resolvelib/resolvers.py", line 397, in resolve
+#7 24.09     self._add_to_criteria(self.state.criteria, r, parent=None)
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/resolvelib/resolvers.py", line 173, in _add_to_criteria
+#7 24.09     if not criterion.candidates:
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/resolvelib/structs.py", line 156, in __bool__
+#7 24.09     return bool(self._sequence)
+#7 24.09            ^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 155, in __bool__
+#7 24.09     return any(self)
+#7 24.09            ^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 143, in <genexpr>
+#7 24.09     return (c for c in iterator if id(c) not in self._incompatible_ids)
+#7 24.09            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 47, in _iter_built
+#7 24.09     candidate = func()
+#7 24.09                 ^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/factory.py", line 182, in _make_candidate_from_link
+#7 24.09     base: Optional[BaseCandidate] = self._make_base_candidate_from_link(
+#7 24.09                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/factory.py", line 228, in _make_base_candidate_from_link
+#7 24.09     self._link_candidate_cache[link] = LinkCandidate(
+#7 24.09                                        ^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 290, in __init__
+#7 24.09     super().__init__(
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 156, in __init__
+#7 24.09     self.dist = self._prepare()
+#7 24.09                 ^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 222, in _prepare
+#7 24.09     dist = self._prepare_distribution()
+#7 24.09            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 301, in _prepare_distribution
+#7 24.09     return preparer.prepare_linked_requirement(self._ireq, parallel_builds=True)
+#7 24.09            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/operations/prepare.py", line 519, in prepare_linked_requirement
+#7 24.09     metadata_dist = self._fetch_metadata_only(req)
+#7 24.09                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/operations/prepare.py", line 371, in _fetch_metadata_only
+#7 24.09     return self._fetch_metadata_using_link_data_attr(
+#7 24.09            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/operations/prepare.py", line 391, in _fetch_metadata_using_link_data_attr
+#7 24.09     metadata_file = get_http_url(
+#7 24.09                     ^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/operations/prepare.py", line 109, in get_http_url
+#7 24.09     from_path, content_type = download(link, temp_dir.path)
+#7 24.09                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/network/download.py", line 147, in __call__
+#7 24.09     for chunk in chunks:
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_internal/network/utils.py", line 63, in response_chunks
+#7 24.09     for chunk in response.raw.stream(
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 622, in stream
+#7 24.09     data = self.read(amt=amt, decode_content=decode_content)
+#7 24.09            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+#7 24.09     with self._error_catcher():
+#7 24.09   File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+#7 24.09     self.gen.throw(typ, value, traceback)
+#7 24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+#7 24.09     raise ReadTimeoutError(self._pool, None, "Read timed out.")
+#7 24.09 pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+#7 24.28 
+#7 24.28 [notice] A new release of pip is available: 24.0 -> 25.3
+#7 24.28 [notice] To update, run: pip install --upgrade pip
+#7 ERROR: process "/bin/sh -c pip install --no-cache-dir     fastapi==0.104.1     uvicorn==0.24.0" did not complete successfully: exit code: 2
+------
+ > [main 3/8] RUN pip install --no-cache-dir     fastapi==0.104.1     uvicorn==0.24.0:
+24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+24.09     with self._error_catcher():
+24.09   File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+24.09     self.gen.throw(typ, value, traceback)
+24.09   File "/usr/local/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+24.09     raise ReadTimeoutError(self._pool, None, "Read timed out.")
+24.09 pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+24.28 
+24.28 [notice] A new release of pip is available: 24.0 -> 25.3
+24.28 [notice] To update, run: pip install --upgrade pip
+------
+failed to solve: process "/bin/sh -c pip install --no-cache-dir     fastapi==0.104.1     uvicorn==0.24.0" did not complete successfully: exit code: 2
+. Stderr: None. 

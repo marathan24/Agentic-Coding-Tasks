@@ -1,0 +1,141 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-8.4.1, pluggy-1.6.0 -- /root/.cache/uv/archive-v0/Eoc3MdairnLwOJcbcpTUz/bin/python
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: anyio-4.11.0, json-ctrf-0.3.5
+collecting ... collected 9 items
+
+../tests/test_sync.py::test_health_endpoint PASSED                       [ 11%]
+../tests/test_sync.py::test_scenario_1_index_document_first PASSED       [ 22%]
+../tests/test_sync.py::test_scenario_2_children_first FAILED             [ 33%]
+../tests/test_sync.py::test_scenario_3_mixed_batch PASSED                [ 44%]
+../tests/test_sync.py::test_scenario_4_late_arrival PASSED               [ 55%]
+../tests/test_sync.py::test_scenario_5_index_reprocessing FAILED         [ 66%]
+../tests/test_sync.py::test_no_null_references PASSED                    [ 77%]
+../tests/test_sync.py::test_reference_consistency PASSED                 [ 88%]
+../tests/test_sync.py::test_performance_large_batch PASSED               [100%]
+
+=================================== FAILURES ===================================
+________________________ test_scenario_2_children_first ________________________
+
+client = <httpx.Client object at 0xffff913df910>
+
+    def test_scenario_2_children_first(client):
+        batch1 = {
+            "documents": [
+                {
+                    "documentId": "ADD-002",
+                    "documentTag": "Addendum",
+                    "collectionName": "Test-Collection-2"
+                },
+                {
+                    "documentId": "MAIN-002",
+                    "documentTag": "MainDocument",
+                    "collectionName": "Test-Collection-2"
+                },
+                {
+                    "documentId": "ERR-002",
+                    "documentTag": "Errata",
+                    "collectionName": "Test-Collection-2"
+                }
+            ]
+        }
+    
+        response = client.post("/batch", json=batch1)
+        assert response.status_code == 200
+        result = response.json()
+        assert result["processed"] == 3
+        assert result["failed"] == 0
+    
+        for doc_id in ["ADD-002", "MAIN-002", "ERR-002"]:
+            doc = client.get(f"/documents/{doc_id}").json()
+            assert doc["jsonId"] is not None
+            assert doc["jsonId"].startswith("JSON-")
+    
+        batch2 = {
+            "documents": [
+                {
+                    "documentId": "IDX-002",
+                    "documentTag": "IndexDocument",
+                    "collectionName": "Test-Collection-2",
+                    "childDocumentIds": [
+                        {"documentId": "ADD-002"},
+                        {"documentId": "MAIN-002"},
+                        {"documentId": "ERR-002"}
+                    ]
+                }
+            ]
+        }
+    
+        response = client.post("/batch", json=batch2)
+        assert response.status_code == 200
+        result = response.json()
+        assert result["processed"] == 1
+        assert result["failed"] == 0
+    
+        children_info = client.get("/index/IDX-002/children").json()
+        child_refs = children_info["childReferences"]
+    
+        assert len(child_refs) == 3
+        for ref in child_refs:
+>           assert ref.get("jsonId") is not None, f"Child {ref['documentId']} should have jsonId from PULL"
+E           AssertionError: Child ADD-002 should have jsonId from PULL
+E           assert None is not None
+E            +  where None = <built-in method get of dict object at 0xffff906bfb80>('jsonId')
+E            +    where <built-in method get of dict object at 0xffff906bfb80> = {'documentId': 'ADD-002'}.get
+
+/tests/test_sync.py:153: AssertionError
+______________________ test_scenario_5_index_reprocessing ______________________
+
+client = <httpx.Client object at 0xffff90977710>
+
+    def test_scenario_5_index_reprocessing(client):
+        batch1 = {
+            "documents": [
+                {
+                    "documentId": "ADD-005",
+                    "documentTag": "Addendum",
+                    "collectionName": "Test-Collection-5"
+                },
+                {
+                    "documentId": "MAIN-005",
+                    "documentTag": "MainDocument",
+                    "collectionName": "Test-Collection-5"
+                }
+            ]
+        }
+    
+        response = client.post("/batch", json=batch1)
+        assert response.status_code == 200
+    
+        batch2 = {
+            "documents": [
+                {
+                    "documentId": "IDX-005",
+                    "documentTag": "IndexDocument",
+                    "collectionName": "Test-Collection-5",
+                    "childDocumentIds": [
+                        {"documentId": "ADD-005"},
+                        {"documentId": "MAIN-005"}
+                    ]
+                }
+            ]
+        }
+    
+        response = client.post("/batch", json=batch2)
+        assert response.status_code == 200
+    
+        children_info = client.get("/index/IDX-005/children").json()
+        initial_refs = children_info["childReferences"]
+        assert len(initial_refs) == 2
+        for ref in initial_refs:
+>           assert ref.get("jsonId") is not None
+E           AssertionError: assert None is not None
+E            +  where None = <built-in method get of dict object at 0xffff904be780>('jsonId')
+E            +    where <built-in method get of dict object at 0xffff904be780> = {'documentId': 'ADD-005'}.get
+
+/tests/test_sync.py:320: AssertionError
+=========================== short test summary info ============================
+FAILED ../tests/test_sync.py::test_scenario_2_children_first - AssertionError...
+FAILED ../tests/test_sync.py::test_scenario_5_index_reprocessing - AssertionE...
+========================= 2 failed, 7 passed in 1.32s ==========================

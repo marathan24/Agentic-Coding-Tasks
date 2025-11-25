@@ -1,0 +1,132 @@
+{
+  "schema_version": "ATIF-v1.2",
+  "session_id": "91ad5da5-ae32-4783-ac4f-cbafa443378f",
+  "agent": {
+    "name": "claude-code",
+    "version": "2.0.51",
+    "model_name": "<synthetic>",
+    "extra": {
+      "cwds": [
+        "/app"
+      ],
+      "agent_ids": [
+        "621ca73e",
+        "14f18f18"
+      ]
+    }
+  },
+  "steps": [
+    {
+      "step_id": 1,
+      "timestamp": "2025-11-24T20:39:07.935Z",
+      "source": "agent",
+      "model_name": "<synthetic>",
+      "message": "Invalid API key \u00b7 Fix external API key",
+      "metrics": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cached_tokens": 0,
+        "extra": {
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": null,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          }
+        }
+      },
+      "extra": {
+        "stop_reason": "stop_sequence",
+        "stop_sequence": "",
+        "cwd": "/app",
+        "is_sidechain": true
+      }
+    },
+    {
+      "step_id": 2,
+      "timestamp": "2025-11-24T20:39:07.952Z",
+      "source": "agent",
+      "model_name": "<synthetic>",
+      "message": "Invalid API key \u00b7 Fix external API key",
+      "metrics": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cached_tokens": 0,
+        "extra": {
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": null,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          }
+        }
+      },
+      "extra": {
+        "stop_reason": "stop_sequence",
+        "stop_sequence": "",
+        "cwd": "/app",
+        "is_sidechain": true
+      }
+    },
+    {
+      "step_id": 3,
+      "timestamp": "2025-11-24T20:39:06.683Z",
+      "source": "user",
+      "message": "The product catalog API is painfully slow, with the `/products/search` endpoint taking 2-4 seconds per query when it should be under 100ms. Your task is to optimize `/app/catalog_service.py` to dramatically improve search performance while keeping the API behavior identical. The current DataStore methods are inefficient and their performance degrades with the amount of data they process, so you'll need to minimize both the number of calls and the data each call handles. Consider pre-processing or reorganizing data to avoid repeatedly calling slow methods for the same information. All three endpoints (`/products/search`, `/products/{product_id}`, and `/stats`) must continue working exactly as before, just much faster. Make sure all tests in `/tests/test_performance.py` pass, validating both correctness and sub-100ms response times.",
+      "extra": {
+        "is_sidechain": false
+      }
+    },
+    {
+      "step_id": 4,
+      "timestamp": "2025-11-24T20:39:08.164Z",
+      "source": "agent",
+      "model_name": "<synthetic>",
+      "message": "Invalid API key \u00b7 Fix external API key",
+      "metrics": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cached_tokens": 0,
+        "extra": {
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": null,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          }
+        }
+      },
+      "extra": {
+        "stop_reason": "stop_sequence",
+        "stop_sequence": "",
+        "cwd": "/app",
+        "is_sidechain": false
+      }
+    }
+  ],
+  "final_metrics": {
+    "total_prompt_tokens": 0,
+    "total_completion_tokens": 0,
+    "total_cached_tokens": 0,
+    "total_steps": 4,
+    "extra": {
+      "total_cache_creation_input_tokens": 0,
+      "total_cache_read_input_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,164 @@
+Traceback (most recent call last):
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/harbor/trial/trial.py", line 340, in run
+    await self._setup_environment()
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/harbor/trial/trial.py", line 180, in _setup_environment
+    await self._start_environment_with_retry()
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/harbor/trial/trial.py", line 192, in _start_environment_with_retry
+    await asyncio.wait_for(
+    ...<4 lines>...
+    )
+  File "/opt/homebrew/Cellar/python@3.13/3.13.3_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 184, in start
+    await self._run_docker_compose_command(["up", "-d"])
+  File "/Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 166, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment optimize-product-catalog. Command: docker compose -p optimize-product-catalog__sehudkk -f /Users/ashwaryamaratha/rl_envs_work/abundant_labs_demo/.venv/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 17. Stdout:  main Pulling 
+ main Warning pull access denied for hb__optimize-product-catalog, repository does not exist or may require 'docker login'
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 411B done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/python:3.11-slim
+#2 DONE 0.4s
+
+#3 [main 1/7] FROM docker.io/library/python:3.11-slim@sha256:193fdd0bbcb3d2ae612bd6cc3548d2f7c78d65b549fcaa8af75624c47474444d
+#3 resolve docker.io/library/python:3.11-slim@sha256:193fdd0bbcb3d2ae612bd6cc3548d2f7c78d65b549fcaa8af75624c47474444d 0.0s done
+#3 sha256:44032d6d082a846084212c224a7e6705d4dafd612194449511ef14c38388ffef 250B / 250B 0.7s done
+#3 sha256:89477b9ce6a61ff5ad56b76e727848cb22d07bf3b33c7513e057fc9138560013 1.27MB / 1.27MB 2.3s done
+#3 sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 14.31MB / 14.31MB 13.7s done
+#3 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 30.14MB / 30.14MB 24.1s done
+#3 extracting sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 0.3s done
+#3 extracting sha256:89477b9ce6a61ff5ad56b76e727848cb22d07bf3b33c7513e057fc9138560013 0.0s done
+#3 extracting sha256:158b441f91fd7081b1c9b51af9f9b5fb4207227bb1f756e1398556a63f050b4c 0.2s done
+#3 extracting sha256:44032d6d082a846084212c224a7e6705d4dafd612194449511ef14c38388ffef done
+#3 DONE 24.6s
+
+#4 [main 2/7] WORKDIR /app
+#4 DONE 0.1s
+
+#5 [main internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [main internal] load build context
+#6 transferring context: 5.83kB done
+#6 DONE 0.0s
+
+#7 [main 3/7] RUN pip install --no-cache-dir     fastapi==0.104.1     uvicorn==0.24.0
+#7 1.090 Collecting fastapi==0.104.1
+#7 1.277   Downloading fastapi-0.104.1-py3-none-any.whl.metadata (24 kB)
+#7 1.468 Collecting uvicorn==0.24.0
+#7 1.477   Downloading uvicorn-0.24.0-py3-none-any.whl.metadata (6.4 kB)
+#7 1.611 Collecting anyio<4.0.0,>=3.7.1 (from fastapi==0.104.1)
+#7 1.661   Downloading anyio-3.7.1-py3-none-any.whl.metadata (4.7 kB)
+#7 2.141 Collecting pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 (from fastapi==0.104.1)
+#7 2.174   Downloading pydantic-2.12.4-py3-none-any.whl.metadata (89 kB)
+#7 2.247      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 1.2 MB/s eta 0:00:00
+#7 2.370 Collecting starlette<0.28.0,>=0.27.0 (from fastapi==0.104.1)
+#7 2.397   Downloading starlette-0.27.0-py3-none-any.whl.metadata (5.8 kB)
+#7 2.469 Collecting typing-extensions>=4.8.0 (from fastapi==0.104.1)
+#7 2.522   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+#7 2.639 Collecting click>=7.0 (from uvicorn==0.24.0)
+#7 2.703   Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+#7 2.776 Collecting h11>=0.8 (from uvicorn==0.24.0)
+#7 2.807   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#7 2.887 Collecting idna>=2.8 (from anyio<4.0.0,>=3.7.1->fastapi==0.104.1)
+#7 2.927   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+#7 3.001 Collecting sniffio>=1.1 (from anyio<4.0.0,>=3.7.1->fastapi==0.104.1)
+#7 3.036   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+#7 3.102 Collecting annotated-types>=0.6.0 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.104.1)
+#7 3.137   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#7 4.666 Collecting pydantic-core==2.41.5 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.104.1)
+#7 4.691   Downloading pydantic_core-2.41.5-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (7.3 kB)
+#7 4.725 Collecting typing-inspection>=0.4.2 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.104.1)
+#7 4.748   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+#7 4.799 Downloading fastapi-0.104.1-py3-none-any.whl (92 kB)
+#7 4.852    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.9/92.9 kB 1.8 MB/s eta 0:00:00
+#7 4.885 Downloading uvicorn-0.24.0-py3-none-any.whl (59 kB)
+#7 4.929    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.6/59.6 kB 1.6 MB/s eta 0:00:00
+#7 4.957 Downloading anyio-3.7.1-py3-none-any.whl (80 kB)
+#7 5.020    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.9/80.9 kB 1.3 MB/s eta 0:00:00
+#7 5.045 Downloading click-8.3.1-py3-none-any.whl (108 kB)
+#7 5.110    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 108.3/108.3 kB 1.9 MB/s eta 0:00:00
+#7 5.146 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#7 5.201 Downloading pydantic-2.12.4-py3-none-any.whl (463 kB)
+#7 5.538    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 463.4/463.4 kB 1.4 MB/s eta 0:00:00
+#7 5.578 Downloading pydantic_core-2.41.5-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (1.9 MB)
+#7 6.632    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 1.8 MB/s eta 0:00:00
+#7 6.674 Downloading starlette-0.27.0-py3-none-any.whl (66 kB)
+#7 6.694    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.0/67.0 kB 4.0 MB/s eta 0:00:00
+#7 6.737 Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+#7 6.751    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.6/44.6 kB 3.6 MB/s eta 0:00:00
+#7 6.788 Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+#7 6.810 Downloading idna-3.11-py3-none-any.whl (71 kB)
+#7 6.840    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 71.0/71.0 kB 3.3 MB/s eta 0:00:00
+#7 6.865 Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+#7 6.883 Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+#7 6.970 Installing collected packages: typing-extensions, sniffio, idna, h11, click, annotated-types, uvicorn, typing-inspection, pydantic-core, anyio, starlette, pydantic, fastapi
+#7 7.282 Successfully installed annotated-types-0.7.0 anyio-3.7.1 click-8.3.1 fastapi-0.104.1 h11-0.16.0 idna-3.11 pydantic-2.12.4 pydantic-core-2.41.5 sniffio-1.3.1 starlette-0.27.0 typing-extensions-4.15.0 typing-inspection-0.4.2 uvicorn-0.24.0
+#7 7.282 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#7 7.388 
+#7 7.388 [notice] A new release of pip is available: 24.0 -> 25.3
+#7 7.388 [notice] To update, run: pip install --upgrade pip
+#7 DONE 7.5s
+
+#8 [main 4/7] COPY generate_data.py /app/generate_data.py
+#8 DONE 0.0s
+
+#9 [main 5/7] RUN python /app/generate_data.py
+#9 0.101 Generating product catalog data...
+#9 0.101 Generated 1000 products
+#9 0.101 Categories: 8
+#9 0.101 Brands: 10
+#9 0.101 Category distribution: {'automotive': 127, 'beauty': 121, 'books': 127, 'clothing': 125, 'electronics': 130, 'home': 123, 'sports': 119, 'toys': 128}
+#9 0.101 Brand distribution: {'BrandA': 96, 'BrandB': 86, 'BrandC': 90, 'BrandD': 100, 'BrandE': 110, 'BrandF': 98, 'BrandG': 118, 'BrandH': 86, 'BrandI': 109, 'BrandJ': 107}
+#9 DONE 0.1s
+
+#10 [main 6/7] COPY catalog_service.py /app/catalog_service.py
+#10 DONE 0.0s
+
+#11 [main 7/7] COPY data_store.py /app/data_store.py
+#11 DONE 0.0s
+
+#12 [main] exporting to image
+#12 exporting layers
+#12 exporting layers 0.5s done
+#12 exporting manifest sha256:ddeed9c9b1a17e997232108de2a809674b3c8b2d22c1de92e8e5ea6f6c2d078c done
+#12 exporting config sha256:b011eed8c4105c63667b4100226f49875ba6270733aee0d267ff30805ed4479e done
+#12 exporting attestation manifest sha256:96810098a827c71ef6d4b5f059793bf2d33d9a70a9f40bb4c2a1c4da57257ea6 0.0s done
+#12 exporting manifest list sha256:162476f3f563ac59731f97e76e4ce25bfbda3be8caa4a73aeecba0e1f21d088a done
+#12 naming to docker.io/library/hb__optimize-product-catalog:latest done
+#12 ERROR: image "docker.io/library/hb__optimize-product-catalog:latest": already exists
+------
+ > [main] exporting to image:
+------
+failed to solve: image "docker.io/library/hb__optimize-product-catalog:latest": already exists
+. Stderr: None. 
