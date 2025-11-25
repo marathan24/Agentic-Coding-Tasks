@@ -7,7 +7,20 @@ This follows the Directory structure of Terminal Bench 2.0 and we have used harb
 
 ## Prerequisites
 
-Before running any tasks, you must first install dependencies:
+### 1. Start Docker
+
+Before running any tasks, ensure Docker is running on your machine:
+
+```bash
+# Start Docker Desktop (macOS/Windows) or Docker daemon (Linux)
+docker info  # Verify Docker is running
+```
+
+> **Note:** Docker must be running for the task environments to work properly.
+
+### 2. Install Dependencies
+
+Install the required dependencies:
 
 ```bash
 uv sync
